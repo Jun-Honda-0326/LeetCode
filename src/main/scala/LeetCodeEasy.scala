@@ -10,6 +10,7 @@ object Easy {
     println(runningSum(nums))
     println(defangIPadder(address))
     println(kidsWithCandies(candies, int))
+    println(shuffle(candies, int))
   }
 
   def maxmunWealth(accounts: Array[Array[Int]]): Int = {
@@ -33,6 +34,13 @@ object Easy {
         false
       }
     )
+  }
+
+  def shuffle(nums: List[Int], n: Int): List[Int] = {
+    val nums1 = nums.splitAt(n)._1.zipWithIndex
+    val nums2 = nums.splitAt(n)._2.zipWithIndex
+    val newNums = nums1 ++ nums2
+    newNums.sortBy(v => v._2).map(x => x._1)
   }
 
 }
