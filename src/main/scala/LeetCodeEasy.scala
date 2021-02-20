@@ -7,6 +7,8 @@ object Easy {
     val candies: List[Int] = List(2, 3, 5, 6, 1, 2)
     val int = 3
     val address: String = "255.255.100.1"
+    val jewels: String = "aA"
+    val stones:String = "aAAbbb"
 
     println(maxmunWealth(accounts))
     println(runningSum(nums))
@@ -14,6 +16,7 @@ object Easy {
     println(kidsWithCandies(candies, int))
     println(shuffle(candies, int))
     println(numIdenticalPairs(nums2))
+    println(numJewelsInStones(jewels, stones))
 
   }
 
@@ -47,14 +50,19 @@ object Easy {
     newNums.sortBy(v => v._2).map(x => x._1)
   }
 
-  def numIdenticalPairs(nums: List[Int]): Int  = {
+  def numIdenticalPairs(nums: List[Int]): Int = {
     val nums1 = nums.zipWithIndex
     val nums2 = nums.zipWithIndex.drop(1)
     val numsTup = for {
       num1 <- nums1
       num2 <- nums2
-    } yield (num1,num2)
+    } yield (num1, num2)
     numsTup.filter(v => v._1._1 == v._2._1 & v._1._2 < v._2._2).length
   }
+
+   def numJewelsInStones(jewels: String, stones: String): Int = {
+      stones.filter(v => jewels.contains(v)).length
+   }
+
 
 }
