@@ -10,6 +10,7 @@ object Easy {
     val jewels: String = "aA"
     val stones:String = "aAAbbb"
 
+
     println(maxmunWealth(accounts))
     println(runningSum(nums))
     println(defangIPadder(address))
@@ -17,8 +18,11 @@ object Easy {
     println(shuffle(candies, int))
     println(numIdenticalPairs(nums2))
     println(numJewelsInStones(jewels, stones))
+    println(smallerNumbersThanCurrent(nums2))
+    println(restoreString("codeleet", Array(4,5,6,7,0,2,1,3)))
 
   }
+
 
   def maxmunWealth(accounts: Array[Array[Int]]): Int = {
     accounts.map(v => v.sum).max
@@ -63,6 +67,24 @@ object Easy {
    def numJewelsInStones(jewels: String, stones: String): Int = {
       stones.filter(v => jewels.contains(v)).length
    }
+
+   def smallerNumbersThanCurrent(nums: List[Int]): List[Int] = {
+     for (i <- nums) yield {
+       nums.filter(v => v < i).length
+     }
+    }
+
+     def restoreString(s: String, indices: Array[Int]): String = {
+          indices.zip(s).sortBy(_._1).map(_._2).mkString
+     }
+
+
+
+
+
+
+
+
 
 
 }
