@@ -20,6 +20,7 @@ object Easy {
     println(numJewelsInStones(jewels, stones))
     println(smallerNumbersThanCurrent(nums2))
     println(restoreString("codeleet", Array(4,5,6,7,0,2,1,3)))
+    println(subtractProductAndSum(234))
 
   }
 
@@ -75,16 +76,13 @@ object Easy {
     }
 
      def restoreString(s: String, indices: Array[Int]): String = {
-          indices.zip(s).sortBy(_._1).map(_._2).mkString
+        indices.zip(s).sortBy(_._1).map(_._2).mkString
      }
 
-
-
-
-
-
-
-
+     def subtractProductAndSum(n: Int): Int = {
+       val list = n.toString.map(_.toString.toInt).toSeq
+       (list.reduce(_ * _) - list.reduce(_ + _)).toInt
+    }
 
 
 }
